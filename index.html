@@ -1095,9 +1095,17 @@ $(document).ready(function() {
     <div class="webtitle">
 <h1>Teknic Product Configurator</h1>
     </div>
-
-    <!-- Main button to show all options -->
-    <button id="showOptionsBtn" class="main-btn">Products Configurator</button>
+<!-- Container for Logo and Button -->
+<div class="header-container">
+    <!-- Logo Section -->
+    <div class="logo">
+        <img src="logo.png" alt="Teknic Electric Logo">
+    </div>
+    <!-- Main Button -->
+    <button id="showOptionsBtn" class="main-btn">
+        Show All Options
+    </button>
+</div>
 
     <!-- Container for all nested options -->
     <div class="mastercon">
@@ -1106,10 +1114,20 @@ $(document).ready(function() {
             <button class="option-btn btn-common">Push Button</button>
             <div class="nested-options">
                 <div class="option-group">
-                    <button class="option-btn btn-common">Plastic Series</button>
+                    <button class="option-btn btn-common">16 mm</button>
+                
+                <div class="nested-options">
+        <div class="option-group">
+            <button class="option-btn btn-common">Plastic Series</button>
+        </div>
+    </div>
+    </div>
+
+                <div class="option-group">
+                    <button class="option-btn btn-common">22.5 mm</button>
                     <div class="nested-options">
                         <div class="option-group">
-                            <button class="option-btn btn-common">22.5 mm</button>
+                            <button class="option-btn btn-common">Plastic Series</button>
                             <div class="nested-options">
                                 <div class="option-group">
                                     <button class="option-btn btn-common">Screw Terminal</button>
@@ -2270,14 +2288,22 @@ $(document).ready(function() {
                                 </div>
                             </div>
                         </div>
-                        <div class="option-group">
-                            <button class="option-btn btn-common">16 mm</button>
-                        </div>
+                         <div class="option-group">
+        <button class="option-btn btn-common">Metal Series</button>
+    </div>
                     </div>
                 </div>
-                <div class="option-group">
-                    <button class="option-btn btn-common">Metal Series</button>
-                </div>
+               
+
+            <div class="option-group">
+                <button class="option-btn btn-common"> 30.5mm</button>
+            
+            <div class="nested-options">
+    <div class="option-group">
+        <button class="option-btn btn-common">Metal Series</button>
+    </div>
+</div>
+</div>
             </div>
         </div>
         <!-- Sibling for Option 1 -->
@@ -2641,7 +2667,7 @@ $(document).ready(function() {
 
     <!-- Result display section -->
     <div id="result" class="result hidden">
-        <h2>Generated Code:</h2>
+        ORDERING CODE:
         <p id="generated-code"></p>
     </div>
     <!-- flush images -->
@@ -2649,33 +2675,41 @@ $(document).ready(function() {
     <!-- Image Section -->
     <div class="image-container hidden" id="whiteimageContainer">
         <img src="flush/white.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
     </div>
     <div class="image-container hidden" id="blackimageContainer">
         <img src="flush/black.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
     </div>
     <div class="image-container hidden" id="greenimageContainer">
         <img src="flush/green.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
     </div>
     <div class="image-container hidden" id="redimageContainer">
         <img src="flush/red.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
     </div>
     <div class="image-container hidden" id="blueimageContainer">
         <img src="flush/blue.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
     </div>
     <div class="image-container hidden" id="yellowimageContainer">
         <img src="flush/yellow.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
     </div>
     
     <div id="plus1" class="plus-symbol" style="display: none;">+</div>
 
     <div class="image-container hidden" id="noimageContainer">
     <img src="images/no-default.png" alt="NO Image" class="product-image">
+    <div class="image-name">S1</div>
 </div>
 
 <div id="plus2" class="plus-symbol" style="display: none;">+</div>
 
 <div class="image-container hidden" id="ncimageContainer">
     <img src="images/nc-default.png" alt="NC Image" class="product-image">
+    <div class="image-name">S2</div>
 </div>
     
 </div>
