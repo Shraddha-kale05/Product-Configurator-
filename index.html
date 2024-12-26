@@ -1,0 +1,2867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknic Product Configurator</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script>
+// flush      
+
+
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('NO-input').classList.remove('hidden');
+            document.getElementById('NC-input').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#NO-btn') && !sibling.querySelector('#NC-btn')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+$(document).ready(function() {
+    // Flush button click event
+    $(".flush").click(function() {
+        // Use Ajax to simulate refreshing the content
+        $.ajax({
+            url: window.location.href, // Reload the current page (or you can use a specific URL to fetch content)
+            type: 'GET',
+            success: function(response) {
+                // Assuming the container with the id 'output' holds the content you want to refresh
+                $(".output").html($(response).find(".output").html());
+            },
+            error: function(xhr, status, error) {
+                console.error("Error while refreshing content:", error);
+            }
+        });
+    });
+});
+
+// for second
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('secondinputno').classList.remove('hidden');
+            document.getElementById('secondinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#secondnbtnno') && !sibling.querySelector('#secondnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });  
+});
+
+
+// for third
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('thirdinputno').classList.remove('hidden');
+            document.getElementById('thirdinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#thirdnbtnno') && !sibling.querySelector('#thirdnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for fouth
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fourthinputno').classList.remove('hidden');
+            document.getElementById('fourthinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fourthnbtnno') && !sibling.querySelector('#fourthnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for five
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fiveinputno').classList.remove('hidden');
+            document.getElementById('fiveinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fivenbtnno') && !sibling.querySelector('#fivenbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for sixs
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('sixsinputno').classList.remove('hidden');
+            document.getElementById('sixsinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#sixsnbtnno') && !sibling.querySelector('#sixsnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// flush end
+// flush with arrow marking
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fwamNO-input').classList.remove('hidden');
+            document.getElementById('fwamNC-input').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fwamNO-btn') && !sibling.querySelector('#fwamNC-btn')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+$(document).ready(function() {
+    // Flush button click event
+    $(".fwam").click(function() {
+        // Use Ajax to simulate refreshing the content
+        $.ajax({
+            url: window.location.href, // Reload the current page (or you can use a specific URL to fetch content)
+            type: 'GET',
+            success: function(response) {
+                // Assuming the container with the id 'output' holds the content you want to refresh
+                $(".output").html($(response).find(".output").html());
+            },
+            error: function(xhr, status, error) {
+                console.error("Error while refreshing content:", error);
+            }
+        });
+    });
+});
+// for second
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fwamsecondinputno').classList.remove('hidden');
+            document.getElementById('fwamsecondinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fwamsecondnbtnno') && !sibling.querySelector('#fwamsecondnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for third
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fwamthirdinputno').classList.remove('hidden');
+            document.getElementById('fwamthirdinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fwamthirdnbtnno') && !sibling.querySelector('#fwamthirdnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for fouth
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fwamfourthinputno').classList.remove('hidden');
+            document.getElementById('fwamfourthinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fwamfourthnbtnno') && !sibling.querySelector('#fwamfourthnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for five
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fwamfiveinputno').classList.remove('hidden');
+            document.getElementById('fwamfiveinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fwamfivenbtnno') && !sibling.querySelector('#fwamfivenbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for sixs
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('fwamsixsinputno').classList.remove('hidden');
+            document.getElementById('fwamsixsinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#fwamsixsnbtnno') && !sibling.querySelector('#fwamsixsnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// flush with arrow marking close
+// projection
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('ProjNO-input').classList.remove('hidden');
+            document.getElementById('ProjNC-input').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#ProjNO-btn') && !sibling.querySelector('#ProjNC-btn')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+$(document).ready(function() {
+    // Flush button click event
+    $(".Proj").click(function() {
+        // Use Ajax to simulate refreshing the content
+        $.ajax({
+            url: window.location.href, // Reload the current page (or you can use a specific URL to fetch content)
+            type: 'GET',
+            success: function(response) {
+                // Assuming the container with the id 'output' holds the content you want to refresh
+                $(".output").html($(response).find(".output").html());
+            },
+            error: function(xhr, status, error) {
+                console.error("Error while refreshing content:", error);
+            }
+        });
+    });
+});
+// for second
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('Projsecondinputno').classList.remove('hidden');
+            document.getElementById('Projsecondinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#Projsecondnbtnno') && !sibling.querySelector('#Projsecondnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for third
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('Projthirdinputno').classList.remove('hidden');
+            document.getElementById('Projthirdinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#Projthirdnbtnno') && !sibling.querySelector('#Projthirdnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for fouth
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('Projfourthinputno').classList.remove('hidden');
+            document.getElementById('Projfourthinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#Projfourthnbtnno') && !sibling.querySelector('#Projfourthnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for five
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('Projfiveinputno').classList.remove('hidden');
+            document.getElementById('Projfiveinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#Projfivenbtnno') && !sibling.querySelector('#Projfivenbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for sixs
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('Projsixsinputno').classList.remove('hidden');
+            document.getElementById('Projsixsinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#Projsixsnbtnno') && !sibling.querySelector('#Projsixsnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// projectiong close
+
+// frra
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('frraNO-input').classList.remove('hidden');
+            document.getElementById('frraNC-input').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#frraNO-btn') && !sibling.querySelector('#frraNC-btn')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+$(document).ready(function() {
+    // Flush button click event
+    $(".frra").click(function() {
+        // Use Ajax to simulate refreshing the content
+        $.ajax({
+            url: window.location.href, // Reload the current page (or you can use a specific URL to fetch content)
+            type: 'GET',
+            success: function(response) {
+                // Assuming the container with the id 'output' holds the content you want to refresh
+                $(".output").html($(response).find(".output").html());
+            },
+            error: function(xhr, status, error) {
+                console.error("Error while refreshing content:", error);
+            }
+        });
+    });
+});
+// for second
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('frrasecondinputno').classList.remove('hidden');
+            document.getElementById('frrasecondinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#frrasecondnbtnno') && !sibling.querySelector('#frrasecondnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for third
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('frrathirdinputno').classList.remove('hidden');
+            document.getElementById('frrathirdinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#frrathirdnbtnno') && !sibling.querySelector('#frrathirdnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for fouth
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('frrafourthinputno').classList.remove('hidden');
+            document.getElementById('frrafourthinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#frrafourthnbtnno') && !sibling.querySelector('#frrafourthnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for five
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('frrafiveinputno').classList.remove('hidden');
+            document.getElementById('frrafiveinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#frrafivenbtnno') && !sibling.querySelector('#frrafivenbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for sixs
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('frrasixsinputno').classList.remove('hidden');
+            document.getElementById('frrasixsinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#frrasixsnbtnno') && !sibling.querySelector('#frrasixsnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// frr close
+
+
+// booted 
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('bootNO-input').classList.remove('hidden');
+            document.getElementById('bootNC-input').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#bootNO-btn') && !sibling.querySelector('#bootNC-btn')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+$(document).ready(function() {
+    // Flush button click event
+    $(".boot").click(function() {
+        // Use Ajax to simulate refreshing the content
+        $.ajax({
+            url: window.location.href, // Reload the current page (or you can use a specific URL to fetch content)
+            type: 'GET',
+            success: function(response) {
+                // Assuming the container with the id 'output' holds the content you want to refresh
+                $(".output").html($(response).find(".output").html());
+            },
+            error: function(xhr, status, error) {
+                console.error("Error while refreshing content:", error);
+            }
+        });
+    });
+});
+// for second
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('bootsecondinputno').classList.remove('hidden');
+            document.getElementById('bootsecondinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#bootsecondnbtnno') && !sibling.querySelector('#bootsecondnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for third
+
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('bootthirdinputno').classList.remove('hidden');
+            document.getElementById('bootthirdinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#bootthirdnbtnno') && !sibling.querySelector('#bootthirdnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for fouth
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('bootfourthinputno').classList.remove('hidden');
+            document.getElementById('bootfourthinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#bootfourthnbtnno') && !sibling.querySelector('#bootfourthnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+// for five
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('bootfiveinputno').classList.remove('hidden');
+            document.getElementById('bootfiveinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#bootfivenbtnno') && !sibling.querySelector('#bootfivenbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// for sixs
+document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const parent = button.closest('.option-group');
+        const siblings = parent.parentNode.querySelectorAll(':scope > .option-group');
+
+        
+        if (button.id === 'assembly-yes-btn') {
+          
+            document.getElementById('bootsixsinputno').classList.remove('hidden');
+            document.getElementById('bootsixsinputnc').classList.remove('hidden');
+            return;
+        }
+
+        
+        siblings.forEach(sibling => {
+            if (sibling !== parent && !sibling.querySelector('#bootsixsnbtnno') && !sibling.querySelector('#bootsixsnbtnnc')) {
+                sibling.style.display = 'none';
+            }
+        });
+
+        
+        const nestedOptions = button.nextElementSibling;
+        if (nestedOptions) {
+            nestedOptions.style.display = nestedOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    
+});
+
+// booted close
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// button close system
+
+$(document).ready(function() {
+    $('.btn-common').on('click', function() {
+        
+        var parent = $(this).closest('.option-group');
+       
+      
+
+       
+        var allButtons = parent.siblings().find('.btn-common');
+
+      
+        allButtons.toggle();
+        
+     
+        var nestedOptions = $(this).next();
+        nestedOptions.toggle(); 
+
+      
+        $(this).show();
+
+      
+    });
+    // $('.option-btn').on('click',function(){
+    //     var nestedOptions = $(this).next();
+    //     nestedOptions.toggle();
+    // })
+
+    
+});
+
+    </script>
+    
+    <div class="webtitle">
+<h1>Teknic Product Configurator</h1>
+    </div>
+<!-- Container for Logo and Button -->
+<div class="header-container">
+    <!-- Logo Section -->
+    <div class="logo">
+        <img src="logo.png" alt="Teknic Electric Logo">
+    </div>
+    <!-- Main Button -->
+    <button id="showOptionsBtn" class="main-btn">
+        Show All Options
+    </button>
+</div>
+
+    <!-- Container for all nested options -->
+    <div class="mastercon">
+    <div id="optionsContainer" class="container hidden">
+        <div class="option-group first">
+            <button class="option-btn btn-common">Push Button</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">Ø16 mm</button>
+                
+                <div class="nested-options">
+        <div class="option-group">
+            <button class="option-btn btn-common">Plastic Series</button>
+        </div>
+    </div>
+    </div>
+
+                <div class="option-group">
+                    <button class="option-btn btn-common">Ø22.5 mm</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">Plastic Series</button>
+                            <div class="nested-options">
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Screw Terminal</button>
+                                    <div class="nested-options">
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Momentory Actuators</button>
+                                            <div class="nested-options">
+                                                <div class="option-group">
+
+
+
+
+
+
+
+
+<style>
+.btn-common {
+    display: inline-flex; /* Ensures the button and its children align in one line */
+    align-items: center; /* Vertically centers the white circle and text */
+    border: none; /* Removes default button border */
+    background: none; /* Removes default button background */
+    padding: 5px 10px; /* Adjust spacing as needed */
+    cursor: pointer; /* Adds pointer cursor for buttons */
+}
+
+.btn-common .white-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Ensures the div is a perfect circle */
+    background-color: white;
+    margin-right: 5px; /* Adds spacing between the circle and text */
+}
+.btn-common .black-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Ensures the div is a perfect circle */
+    background-color: rgb(0, 0, 0);
+    margin-right: 5px; /* Adds spacing between the circle and text */
+}
+.btn-common .green-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Ensures the div is a perfect circle */
+    background-color: rgb(0, 221, 4);
+    margin-right: 5px; /* Adds spacing between the circle and text */
+}
+.btn-common .blue-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Ensures the div is a perfect circle */
+    background-color: rgb(0, 64, 255);
+    margin-right: 5px; /* Adds spacing between the circle and text */
+}
+.btn-common .red-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Ensures the div is a perfect circle */
+    background-color: rgb(255, 0, 0);
+    margin-right: 5px; /* Adds spacing between the circle and text */
+}
+.btn-common .yellow-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Ensures the div is a perfect circle */
+    background-color: rgb(251, 255, 0);
+    margin-right: 5px; /* Adds spacing between the circle and text */
+}
+</style>
+
+
+                                                    <button class="option-btn btn-common flush">Flush</button>
+                                                    <div class="nested-options">
+                                                        <!-- 1st colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common flush">
+                                                                <div class="white-btn"></div>(P2AF1)
+                                                            </button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <!-- Silver Contact Button -->
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Silver Contact</button>
+                                                                            <div class="nested-options">
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NO-btn">Normally Open (S1)</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NO-input" class="hidden" placeholder="Enter NO code">
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NC-btn">Normally Close (S2)</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NC-input" class="hidden" placeholder="Enter NC code">
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Gold Contact Button -->
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Gold Contact</button>
+                                                                            <div class="nested-options">
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NO-btn">Normally Open</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NO-input" class="hidden" placeholder="Enter NO code">
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NC-btn">Normally Close (S2)</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NC-input" class="hidden" placeholder="Enter NC code">
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                              <!-- 2 colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common flush"><div class="black-btn"></div>(P2AF2)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="secondnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="secondinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="secondnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="secondinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common flush"><div class="green-btn"></div>(P2AF3)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="thirdnbtnno">Normally Open (S1)</button>
+                                                                                        <form action="" class="flushform">
+                                                                                        <input type="number" id="thirdinputno"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn"  id="thirdnbtnnc">Normally Close (S2)</button>
+                                                                                        <form action="" class="flushform">
+                                                                                        <input type="number" id="thirdinputnc"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                       
+                                                                 
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common flush"><div class="red-btn"></div>(P2AF4)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="fourthnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="fourthinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="fourthnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="fourthinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common flush"><div class="blue-btn"></div>(P2AF6)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="fivenbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="fiveinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="fivenbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="fiveinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common flush"><div class="yellow-btn"></div>(P2AF8)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="sixsnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="sixsinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="sixsnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="flushform">
+                                                                            <input type="number" id="sixsinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+<!-- 
+                                                1
+                                                11
+                                                11
+                                                1
+                                                1
+                                                1
+                                                1
+                                                11
+                                                11
+                                                11
+                                                1
+                                                1
+                                                11
+                                                1
+                                                11
+                                                1
+                                                11
+                                                 -->
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common fwam">Flush With Arrow Marking</button>
+
+
+                                                    <div class="nested-options">
+                                                        <!-- 1st colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common fwam"><div class="white-btn"></div> (P2AF1A)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="fwamNO-btn" >Normally Open (S1)</button>
+                                                                                <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamNO-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="fwamNC-btn">Normally Close (S2)</button>
+                                                                                <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamNC-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                              <!-- 2 colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common fwam"><div class="black-btn"></div>(P2AF2A)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="fwamsecondnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamsecondinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="fwamsecondnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamsecondinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common fwam"><div class="green-btn"></div>(P2AF3A)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="fwamthirdnbtnno">Normally Open (S1)</button>
+                                                                                        <form action="" class="fwamform">
+                                                                                        <input type="number" id="fwamthirdinputno"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn"  id="fwamthirdnbtnnc">Normally Close (S2)</button>
+                                                                                        <form action="" class="fwamform">
+                                                                                        <input type="number" id="fwamthirdinputnc"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                       
+                                                                 
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common fwam"><div class="red-btn"></div>(P2AF4A)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="fwamfourthnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamfourthinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="fwamfourthnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamfourthinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common fwam"><div class="blue-btn"></div>(P2AF6A)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="fwamfivenbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamfiveinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="fwamfivenbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamfiveinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common fwam"><div class="yellow-btn"></div>(P2AF8A)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="fwamsixsnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamsixsinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="fwamsixsnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="fwamform">
+                                                                            <input type="number" id="fwamsixsinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
+
+                                                </div>
+
+
+                                                <!-- 
+                                                *
+                                                *
+                                                *
+                                                *
+                                                *
+                                                *
+                                                 -->
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common Proj">Projecting</button>
+
+                                                    <div class="nested-options">
+                                                        <!-- 1st colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common Proj"><div class="white-btn"></div>(P2AP1)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="ProjNO-btn" >Normally Open (S1)</button>
+                                                                                <form action="" class="Projform">
+                                                                            <input type="number" id="ProjNO-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="ProjNC-btn">Normally Close (S2)</button>
+                                                                                <form action="" class="Projform">
+                                                                            <input type="number" id="ProjNC-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                              <!-- 2 colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common Proj"><div class="black-btn"></div>(P2AP2)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="Projsecondnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projsecondinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="Projsecondnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projsecondinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common Proj"><div class="green-btn"></div>(P2AP3)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="Projthirdnbtnno">Normally Open (S1)</button>
+                                                                                        <form action="" class="Projform">
+                                                                                        <input type="number" id="Projthirdinputno"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn"  id="Projthirdnbtnnc">Normally Close (S2)</button>
+                                                                                        <form action="" class="Projform">
+                                                                                        <input type="number" id="Projthirdinputnc"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                       
+                                                                 
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common Proj"><div class="red-btn"></div>(P2AP4)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="Projfourthnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projfourthinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="Projfourthnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projfourthinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common Proj"><div class="blue-btn"></div>(P2AP6)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="Projfivenbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projfiveinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="Projfivenbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projfiveinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common Proj"><div class="yellow-btn"></div>(P2AP8)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="Projsixsnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projsixsinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="Projsixsnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="Projform">
+                                                                            <input type="number" id="Projsixsinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
+
+
+                                                </div>
+
+                                                <!-- 
+                                                ******************************
+                                                ***********************************
+                                                **************************************
+                                                ******************************************
+                                                *************************************************
+                                                *******************************************************
+                                                 -->
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common frra">Flush Relay Reset Actuator</button>
+
+
+
+                                                    <div class="nested-options">
+                                                        <!-- 1st colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common frra"><div class="white-btn"></div>(P2AF1RR)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="frraNO-btn" >Normally Open (S1)</button>
+                                                                                <form action="" class="frraform">
+                                                                            <input type="number" id="frraNO-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="frraNC-btn">Normally Close (S2)</button>
+                                                                                <form action="" class="frraform">
+                                                                            <input type="number" id="frraNC-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                              <!-- 2 colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common frra"><div class="black-btn"></div>(P2AF2RR)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="frrasecondnbtnno">Normally Open (S1)</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrasecondinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="frrasecondnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrasecondinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common frra"><div class="green-btn"></div>(P2AF3RR)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="frrathirdnbtnno">Normally Open</button>
+                                                                                        <form action="" class="frraform">
+                                                                                        <input type="number" id="frrathirdinputno"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn"  id="frrathirdnbtnnc">Normally Close (S2)</button>
+                                                                                        <form action="" class="frraform">
+                                                                                        <input type="number" id="frrathirdinputnc"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                       
+                                                                 
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common frra"><div class="red-btn"></div>(P2AF4RR)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="frrafourthnbtnno">Normally Open</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrafourthinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="frrafourthnbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrafourthinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common frra"><div class="blue-btn"></div>(P2AF6RR)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="frrafivenbtnno">Normally Open</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrafiveinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="frrafivenbtnnc">Normally Close (S2)</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrafiveinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common frra"><div class="yellow-btn"></div>(P2AF8RR)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="frrasixsnbtnno">Normally Open</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrasixsinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="frrasixsnbtnnc">Normally Close</button>
+                                                                            <form action="" class="frraform">
+                                                                            <input type="number" id="frrasixsinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
+
+
+
+                                                </div>
+
+                                                <!-- 
+                                                ################################
+                                                ########################################
+                                                ##############################################
+                                                ###################################################
+                                                #########################################################
+                                                
+                                                -->
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common boot">Booted</button>
+
+
+                                                    <div class="nested-options">
+                                                        <!-- 1st colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common boot"><div class="white-btn"></div>(P2AF1BT7)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="bootNO-btn" >Normally Open</button>
+                                                                                <form action="" class="bootform">
+                                                                            <input type="number" id="bootNO-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn "
+                                                                                id="bootNC-btn">Normally Close</button>
+                                                                                <form action="" class="bootform">
+                                                                            <input type="number" id="bootNC-input"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                              <!-- 2 colour -->
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common boot"><div class="black-btn"></div>(P2AF2BT7)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="bootsecondnbtnno">Normally Open</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootsecondinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="bootsecondnbtnnc">Normally Close</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootsecondinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common boot"><div class="green-btn"></div>(P2AF3BT7)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="bootthirdnbtnno">Normally Open</button>
+                                                                                        <form action="" class="bootform">
+                                                                                        <input type="number" id="bootthirdinputno"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn"  id="bootthirdnbtnnc">Normally Close</button>
+                                                                                        <form action="" class="bootform">
+                                                                                        <input type="number" id="bootthirdinputnc"
+                                                                                            class="hidden"
+                                                                                            placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                       
+                                                                 
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common boot"><div class="red-btn"></div>(P2AF4BT7)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="bootfourthnbtnno">Normally Open</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootfourthinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="bootfourthnbtnnc">Normally Close</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootfourthinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common boot"><div class="blue-btn"></div>(P2AF6BT7)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="bootfivenbtnno">Normally Open</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootfiveinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="bootfivenbtnnc">Normally Close</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootfiveinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common boot"><div class="yellow-btn"></div>(P2AF8BT7)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+
+                                                                    <div class="nested-options">
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn" id="bootsixsnbtnno">Normally Open</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootsixsinputno"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NO code">
+                                                                                </form>
+                                                                        </div>
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn"  id="bootsixsnbtnnc">Normally Close</button>
+                                                                            <form action="" class="bootform">
+                                                                            <input type="number" id="bootsixsinputnc"
+                                                                                class="hidden"
+                                                                                placeholder="Enter NC code">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Mashroom Head Actuators</button>
+                                        </div>
+
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Selector Actuators</button>
+                                        </div>
+
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Key Selector Actuators</button>
+                                        </div>
+
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Twin Actuators</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Clip on Series</button>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="option-group">
+        <button class="option-btn btn-common">Metal Series</button>
+    </div>
+                    </div>
+                </div>
+               
+
+            <div class="option-group">
+                <button class="option-btn btn-common"> Ø30.5mm</button>
+            
+            <div class="nested-options">
+    <div class="option-group">
+        <button class="option-btn btn-common">Metal Series</button>
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+        <!-- Sibling for Option 1 -->
+        <div class="option-group second">
+            <button class="option-btn btn-common btn-common">Control Station</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">Option 2.1</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">Option 2.1.1</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="option-group third">
+            <button class="option-btn btn-common btn-common">Potentiometer</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">22.5 mm</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P2</button>
+                            <div class="nested-options">
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Momentory Actuator</button>
+                                    <div class="nested-options">
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush</button>
+                                            <div class="nested-options">
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">White (P2AF1)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NO-btn">NO</button>
+                                                                    <input type="number" id="NO-input" class="hidden"
+                                                                        placeholder="Enter NO code">
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NC-btn">NC</button>
+                                                                    <input type="number" id="NC-input" class="hidden"
+                                                                        placeholder="Enter NC code">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Black (P2AF2)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Green (P2AF3)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Red (P2AF4)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Blue (P2AF6)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Yellow (P2AF8)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush With Arrow Marking</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Projecting</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush Relay Reset Actuator</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Booted</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Mashroom Head Actuator</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P4</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-group">
+                    <button class="option-btn btn-common">16 mm</button>
+                </div>
+            </div>
+        </div>
+        <!-- Sibling for Option 1 -->
+        <div class="option-group fourth">
+            <button class="option-btn btn-common btn-common">Conduit Accessories</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">Option 2.1</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">Option 2.1.1</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="option-group five">
+            <button class="option-btn btn-common btn-common">CAM Switches</button>
+            <div class="nested-options">
+                <div class="option-group">
+                    <button class="option-btn btn-common">22.5 mm</button>
+                    <div class="nested-options">
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P2</button>
+                            <div class="nested-options">
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Momentory Actuator</button>
+                                    <div class="nested-options">
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush</button>
+                                            <div class="nested-options">
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">White (P2AF1)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NO-btn">NO</button>
+                                                                    <input type="number" id="NO-input" class="hidden"
+                                                                        placeholder="Enter NO code">
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common" id="NC-btn">NC</button>
+                                                                    <input type="number" id="NC-input" class="hidden"
+                                                                        placeholder="Enter NC code">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Black (P2AF2)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Green (P2AF3)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Red (P2AF4)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Blue (P2AF6)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-group">
+                                                    <button class="option-btn btn-common">Yellow (P2AF8)</button>
+                                                    <div class="nested-options">
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <div class="nested-options">
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NO</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">NC</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option-group">
+                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush With Arrow Marking</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Projecting</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Flush Relay Reset Actuator</button>
+                                        </div>
+                                        <div class="option-group">
+                                            <button class="option-btn btn-common">Booted</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <button class="option-btn btn-common">Mashroom Head Actuator</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <button class="option-btn btn-common">P4</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-group">
+                    <button class="option-btn btn-common">16 mm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="output">
+
+   <!-- Result display section -->
+<!-- Result display section -->
+<div id="result" class="result hidden">
+ 
+    <p id="generated-code"></p>
+    <div id="description" class="description hidden">
+        <h2 id="description-title"></h2>
+    </div>
+</div>
+
+
+   
+    <!-- flush images -->
+     <div class="flushimg">
+    <!-- Image Section -->
+    <div class="image-container hidden" id="whiteimageContainer">
+        <img src="flush/white.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
+    </div>
+    <div class="image-container hidden" id="blackimageContainer">
+        <img src="flush/black.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
+    </div>
+    <div class="image-container hidden" id="greenimageContainer">
+        <img src="flush/green.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
+    </div>
+    <div class="image-container hidden" id="redimageContainer">
+        <img src="flush/red.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
+    </div>
+    <div class="image-container hidden" id="blueimageContainer">
+        <img src="flush/blue.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
+    </div>
+    <div class="image-container hidden" id="yellowimageContainer">
+        <img src="flush/yellow.png" alt="Product Image" class="product-image">
+        <div class="image-name">P2AF1</div>
+    </div>
+    
+    <div id="plus1" class="plus-symbol" style="display: none;">+</div>
+
+    <div class="image-container hidden" id="noimageContainer">
+    <img src="images/no-default.png" alt="NO Image" class="product-image">
+    <div class="image-name">S1</div>
+</div>
+
+<div id="plus2" class="plus-symbol" style="display: none;">+</div>
+
+<div class="image-container hidden" id="ncimageContainer">
+    <img src="images/nc-default.png" alt="NC Image" class="product-image">
+    <div class="image-name">S2</div>
+</div>
+    
+</div>
+
+<!-- flusj images close -->
+ <!-- arrow atart -->
+     <!-- Image Section -->
+      <div class="arrow">
+     <div class="image-container hidden" id="wfwamimageContainer">
+        <img src="arrow/white.png" alt="Product Image" class="product-image">
+    </div>
+    <div class="image-container hidden" id="bfwamimageContainer">
+        <img src="arrow/black.png" alt="Product Image" class="product-image">
+    </div>
+    <div class="image-container hidden" id="gfwamimageContainer">
+        <img src="arrow/green.png" alt="Product Image" class="product-image">
+    </div>
+    <div class="image-container hidden" id="rfwamimageContainer">
+        <img src="arrow/red.png" alt="Product Image" class="product-image">
+    </div>
+    <div class="image-container hidden" id="bbfwamimageContainer">
+        <img src="arrow/blue.png" alt="Product Image" class="product-image">
+    </div>
+    <div class="image-container hidden" id="yfwamimageContainer">
+        <img src="arrow/yellow.png" alt="Product Image" class="product-image">
+    </div>
+
+
+    <div id="plus1" class="plus-symbol" style="display: none;">+</div>
+
+    <div class="image-container hidden" id="noimageContainer">
+    <img src="images/no-default.png" alt="NO Image" class="product-image">
+    <div class="image-name">S1</div>
+</div>
+
+<div id="plus2" class="plus-symbol" style="display: none;">+</div>
+
+<div class="image-container hidden" id="ncimageContainer">
+    <img src="images/nc-default.png" alt="NC Image" class="product-image">
+    <div class="image-name">S2</div>
+</div>
+<!-- arrow close -->
+</div>
+
+
+ <!-- projection start -->
+  <!-- Image Section -->
+   <div class="pro">
+  <div class="image-container hidden" id="wProjimageContainer">
+    <img src="projecting/white.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="bProjimageContainer">
+    <img src="projecting/black.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="gProjimageContainer">
+    <img src="projecting/green.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="rProjimageContainer">
+    <img src="projecting/red.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="bbProjimageContainer">
+    <img src="projecting/blue.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="yProjimageContainer">
+    <img src="projecting/Yellow.png" alt="Product Image" class="product-image">
+</div>
+<div id="plus1" class="plus-symbol" style="display: none;">+</div>
+
+<div class="image-container hidden" id="noimageContainer">
+<img src="images/no-default.png" alt="NO Image" class="product-image">
+<div class="image-name">S1</div>
+</div>
+
+<div id="plus2" class="plus-symbol" style="display: none;">+</div>
+
+<div class="image-container hidden" id="ncimageContainer">
+<img src="images/nc-default.png" alt="NC Image" class="product-image">
+<div class="image-name">S2</div>
+</div>
+
+</div>
+
+<!-- projection close -->
+ <!-- arrow -->
+<!-- Image Section -->
+<div class="image-container hidden" id="wfrraimageContainer">
+    <img src="frra/white.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="bfrraimageContainer">
+    <img src="frra/black.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="gfrraimageContainer">
+    <img src="frra/green.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="rfrraimageContainer">
+    <img src="frra/red.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="bbfrraimageContainer">
+    <img src="frra/blue.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="yfrraimageContainer">
+    <img src="frra/yellow.png" alt="Product Image" class="product-image">
+</div>
+<!-- arrow close -->
+<!-- boot -->
+<div class="image-container hidden" id="wbootimageContainer">
+    <img src="boot/white.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="bbootimageContainer">
+    <img src="boot/black.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="gbootimageContainer">
+    <img src="boot/green.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="rbootimageContainer">
+    <img src="boot/red.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="bbbootimageContainer">
+    <img src="boot/blue.png" alt="Product Image" class="product-image">
+</div>
+<div class="image-container hidden" id="ybootimageContainer">
+    <img src="boot/yellow.png" alt="Product Image" class="product-image">
+</div>
+<!-- boot close -->
+</div>
+
+</div>
+
+    <script src="script.js"></script>
+
+<script>
+            // Show or hide all options
+            document.getElementById('showOptionsBtn').addEventListener('click', function () {
+    const container = document.getElementById('optionsContainer');
+    container.classList.toggle('hidden');
+    this.textContent = container.classList.contains('hidden') ? 'Show All Options' : 'Hide All Options';
+});
+
+document.getElementById('showOptionsBtn').addEventListener('click', function () {
+    const container = document.getElementById('optionsContainer');
+    container.classList.toggle('fwamhidden');
+    this.textContent = container.classList.contains('fwamhidden') ? 'Show All Options' : 'Hide All Options';
+});
+</script>
+
+</body>
+
+</html>
