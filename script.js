@@ -76,7 +76,27 @@ function generateCode() {
             "21": "P2PSF121",
             "23": "P2PSF123",
             "22": "P2PSF122",
-            "33": "P2PSF133"
+            "33": "P2PSF133",
+            "32": "P2PSF132",
+            "13": "P2PSF113",
+            "14": "P2PSF114",
+            "15": "P2PSF115",
+            "24": "P2PSF124",
+            "31": "P2PSF131",
+            "41": "P2PSF141",
+            "42": "P2PSF142",
+            "51": "P2PSF151",
+            "00": "P2PSF100",
+            "20": "P2PSF120",
+            "30": "P2PSF130",
+            "40": "P2PSF140",
+            "50": "P2PSF150",
+            "60": "P2PSF160",
+            "02": "P2PSF102",
+            "03": "P2PSF103",
+            "04": "P2PSF104",
+            "05": "P2PSF105",
+            "06": "P2PSF106"
         };
 
         const combinedValue = noValue + ncValue;
@@ -126,7 +146,153 @@ document.querySelector('.flush').addEventListener('click', function () {
     document.getElementById('description').classList.add('hidden');
 });
 
-  
+//   ECONOMY
+// Ensure NO and NC are always visible and displayed together
+document.getElementById('ENO-btn').addEventListener('click', function () {
+    document.getElementById('ENO-input').classList.remove('hidden');
+    document.getElementById('ENC-input').classList.remove('hidden'); // Always show NC with NO
+});
+
+document.getElementById('ENC-btn').addEventListener('click', function () {
+    document.getElementById('ENC-input').classList.remove('hidden');
+    document.getElementById('ENO-input').classList.remove('hidden'); // Always show NO with NC
+});
+
+// Restrict NO and NC inputs to positive numbers only
+const EpositiveNumberOnly = (event) => {
+    const input = event.target;
+    input.value = input.value.replace(/[^0-9]/g, ''); // Allow only digits
+};
+
+// Add event listeners to enforce positive number restriction
+document.getElementById('ENO-input').addEventListener('input', EpositiveNumberOnly);
+document.getElementById('ENC-input').addEventListener('input', EpositiveNumberOnly);
+
+// Function to generate the code, show the images, and add plus symbols dynamically
+function EgenerateCode() {
+    const noValue = document.getElementById('ENO-input').value;
+    const ncValue = document.getElementById('ENC-input').value;
+
+    const resultContainer = document.getElementById('result');
+    const descriptionContainer = document.getElementById('description');
+    const generatedCodeElement = document.getElementById('generated-code');
+
+    // Image containers
+    const whiteImageContainer = document.getElementById('whiteimageContainer');
+    const noImageContainer = document.getElementById('noimageContainer');
+    const ncImageContainer = document.getElementById('ncimageContainer');
+
+    // Plus symbols
+    const plus1 = document.getElementById('plus1');
+    const plus2 = document.getElementById('plus2');
+
+    // Ensure white image is always visible
+    whiteImageContainer.classList.remove('hidden');
+    plus1.style.display = 'none';  // Hide symbols initially
+    plus2.style.display = 'none';
+
+
+    const noImageName = noImageContainer.querySelector('.image-name');
+    const ncImageName = ncImageContainer.querySelector('.image-name');
+
+    // Logic for NO and NC images
+    if (noValue) {
+        noImageContainer.querySelector('img').src = `images/no-${noValue}.png`;
+        noImageName.textContent = `S1*${noValue}`;
+        noImageContainer.classList.remove('hidden');
+        plus1.style.display = 'block'; // Show the first plus symbol
+    } else {
+        noImageContainer.classList.add('hidden');
+    }
+
+    if (ncValue) {
+        ncImageContainer.querySelector('img').src = `images/nc-${ncValue}.png`;
+        ncImageName.textContent = `S2*${ncValue}`;
+        ncImageContainer.classList.remove('hidden');
+        plus2.style.display = 'block'; // Show the second plus symbol
+    } else {
+        ncImageContainer.classList.add('hidden');
+    }
+
+    // Code generation logic
+    if (noValue && ncValue) {
+        const codes = {
+            "11": "EP2PSF111",
+            "12": "EP2PSF112",
+            "10": "EP2PSF110",
+            "01": "EP2PSF101",
+            "21": "EP2PSF121",
+            "23": "EP2PSF123",
+            "22": "EP2PSF122",
+            "33": "EP2PSF133",
+            "32": "EP2PSF132",
+            "13": "EP2PSF113",
+            "14": "EP2PSF114",
+            "15": "EP2PSF115",
+            "24": "EP2PSF124",
+            "31": "EP2PSF131",
+            "41": "EP2PSF141",
+            "42": "EP2PSF142",
+            "51": "EP2PSF151",
+            "00": "EP2PSF100",
+            "20": "EP2PSF120",
+            "30": "EP2PSF130",
+            "40": "EP2PSF140",
+            "50": "EP2PSF150",
+            "60": "EP2PSF160",
+            "02": "EP2PSF102",
+            "03": "EP2PSF103",
+            "04": "EP2PSF104",
+            "05": "EP2PSF105",
+            "06": "EP2PSF106"
+        };
+
+        const combinedValue = noValue + ncValue;
+        const code = codes[combinedValue] || 'Invalid Code';
+
+        if (code === 'Invalid Code') {
+            noImageContainer.classList.add('hidden');
+            ncImageContainer.classList.add('hidden');
+            plus1.style.display = 'none';
+            plus2.style.display = 'none';
+            generatedCodeElement.textContent = 'Generated Code: Invalid Code';
+            descriptionContainer.classList.add('hidden'); // Hide description for invalid code
+            resultContainer.classList.remove('hidden'); // Show result div
+        } else {
+            generatedCodeElement.textContent = `   ORDERING CODE:${code}`;
+            descriptionContainer.querySelector('#description-title').textContent = `Description:`;
+            descriptionContainer.classList.remove('hidden'); // Show description
+            resultContainer.classList.remove('hidden'); // Show result div
+        }
+    } else {
+        resultContainer.classList.add('hidden'); // Hide result if no input
+    }
+}
+
+// Monitor input changes to update generated code and show images
+document.getElementById('ENO-input').addEventListener('input', EgenerateCode);
+document.getElementById('ENC-input').addEventListener('input', EgenerateCode);
+
+// Add event listener to the "Flush" button
+document.querySelector('.flush').addEventListener('click', function () {
+    // Select all forms with the class 'flushform' and reset their inputs
+    const flushForms = document.querySelectorAll('.flushform');
+    flushForms.forEach(function (form) {
+        // Reset each form individually
+        form.reset();
+    });
+
+    // Reset images and hide plus symbols
+    document.getElementById('noimageContainer').classList.add('hidden');
+    document.getElementById('ncimageContainer').classList.add('hidden');
+    document.getElementById('whiteimageContainer').classList.remove('hidden');
+    document.getElementById('plus1').style.display = 'none';
+    document.getElementById('plus2').style.display = 'none';
+
+    // Hide the result and description
+    document.getElementById('result').classList.add('hidden');
+    document.getElementById('description').classList.add('hidden');
+});
 
 // for second
 
@@ -200,12 +366,33 @@ function SgenerateCode() {
     if (noValue && ncValue) {
         const codes = {
             "11": "P2PSF211",
+            "12": "P2PSF212",
             "10": "P2PSF210",
             "01": "P2PSF201",
             "21": "P2PSF221",
             "23": "P2PSF223",
             "22": "P2PSF222",
-            "33": "P2PSF233"
+            "33": "P2PSF233",
+            "32": "P2PSF232",
+            "13": "P2PSF213",
+            "14": "P2PSF214",
+            "15": "P2PSF215",
+            "24": "P2PSF224",
+            "31": "P2PSF231",
+            "41": "P2PSF241",
+            "42": "P2PSF242",
+            "51": "P2PSF251",
+            "00": "P2PSF200",
+            "20": "P2PSF220",
+            "30": "P2PSF230",
+            "40": "P2PSF240",
+            "50": "P2PSF250",
+            "60": "P2PSF260",
+            "02": "P2PSF202",
+            "03": "P2PSF203",
+            "04": "P2PSF204",
+            "05": "P2PSF205",
+            "06": "P2PSF206"
         };
 
         const combinedValue = noValue + ncValue;
@@ -234,7 +421,132 @@ function SgenerateCode() {
 document.getElementById('secondinputno').addEventListener('input', SgenerateCode);
 document.getElementById('secondinputnc').addEventListener('input', SgenerateCode);
 
+// economy
 
+// Ensure NO and NC are always visible and displayed together
+document.getElementById('Esecondnbtnno').addEventListener('click', function () {
+    document.getElementById('Esecondinputno').classList.remove('hidden');
+    document.getElementById('Esecondinputnc').classList.remove('hidden'); // Always show NC with NO
+});
+
+document.getElementById('Esecondnbtnnc').addEventListener('click', function () {
+    document.getElementById('Esecondinputnc').classList.remove('hidden');
+    document.getElementById('Esecondinputno').classList.remove('hidden'); // Always show NO with NC
+});
+
+// Restrict NO and NC inputs to positive numbers only
+const ESpositiveNumberOnly = (event) => {
+    const input = event.target;
+    input.value = input.value.replace(/[^0-9]/g, ''); // Allow only digits
+};
+
+// Add event listeners to enforce positive number restriction
+document.getElementById('Esecondinputno').addEventListener('input', ESpositiveNumberOnly);
+document.getElementById('Esecondinputnc').addEventListener('input', ESpositiveNumberOnly);
+
+// Function to generate the code, show the images, and add plus symbols dynamically
+function ESgenerateCode() {
+    const noValue = document.getElementById('Esecondinputno').value;
+    const ncValue = document.getElementById('Esecondinputnc').value;
+
+    const resultContainer = document.getElementById('result');
+    const descriptionContainer = document.getElementById('description');
+    const generatedCodeElement = document.getElementById('generated-code');
+
+    // Image containers
+    const blackImageContainer = document.getElementById('blackimageContainer');
+    const noImageContainer = document.getElementById('noimageContainer');
+    const ncImageContainer = document.getElementById('ncimageContainer');
+
+    // Plus symbols
+    const plus1 = document.getElementById('plus1');
+    const plus2 = document.getElementById('plus2');
+
+    // Ensure black image is always visible
+    blackImageContainer.classList.remove('hidden');
+    plus1.style.display = 'none'; // Hide symbols initially
+    plus2.style.display = 'none';
+
+    const noImageName = noImageContainer.querySelector('.image-name');
+    const ncImageName = ncImageContainer.querySelector('.image-name');
+
+    // Logic for NO and NC images
+    if (noValue) {
+        noImageContainer.querySelector('img').src = `images/no-${noValue}.png`;
+        noImageName.textContent = `S1*${noValue}`;
+        noImageContainer.classList.remove('hidden');
+        plus1.style.display = 'block'; // Show the first plus symbol
+    } else {
+        noImageContainer.classList.add('hidden');
+    }
+
+    if (ncValue) {
+        ncImageContainer.querySelector('img').src = `images/nc-${ncValue}.png`;
+        ncImageName.textContent = `S2*${ncValue}`;
+        ncImageContainer.classList.remove('hidden');
+        plus2.style.display = 'block'; // Show the second plus symbol
+    } else {
+        ncImageContainer.classList.add('hidden');
+    }
+
+    // Code generation logic
+    if (noValue && ncValue) {
+        const codes = {
+            "11": "EP2PSF211",
+            "12": "EP2PSF212",
+            "10": "EP2PSF210",
+            "01": "EP2PSF201",
+            "21": "EP2PSF221",
+            "23": "EP2PSF223",
+            "22": "EP2PSF222",
+            "33": "EP2PSF233",
+            "32": "EP2PSF232",
+            "13": "EP2PSF213",
+            "14": "EP2PSF214",
+            "15": "EP2PSF215",
+            "24": "EP2PSF224",
+            "31": "EP2PSF231",
+            "41": "EP2PSF241",
+            "42": "EP2PSF242",
+            "51": "EP2PSF251",
+            "00": "EP2PSF200",
+            "20": "EP2PSF220",
+            "30": "EP2PSF230",
+            "40": "EP2PSF240",
+            "50": "EP2PSF250",
+            "60": "EP2PSF260",
+            "02": "EP2PSF202",
+            "03": "EP2PSF203",
+            "04": "EP2PSF204",
+            "05": "EP2PSF205",
+            "06": "EP2PSF206"
+        };
+
+        const combinedValue = noValue + ncValue;
+        const code = codes[combinedValue] || 'Invalid Code';
+
+        if (code === 'Invalid Code') {
+            noImageContainer.classList.add('hidden');
+            ncImageContainer.classList.add('hidden');
+            plus1.style.display = 'none';
+            plus2.style.display = 'none';
+            generatedCodeElement.textContent = 'Generated Code: Invalid Code';
+            descriptionContainer.classList.add('hidden'); // Hide description for invalid code
+            resultContainer.classList.remove('hidden'); // Show result div
+        } else {
+            generatedCodeElement.textContent = `ORDERING CODE: ${code}`;
+            descriptionContainer.querySelector('#description-title').textContent = `Description:`;
+            descriptionContainer.classList.remove('hidden'); // Show description
+            resultContainer.classList.remove('hidden'); // Show result div
+        }
+    } else {
+        resultContainer.classList.add('hidden'); // Hide result if no input
+    }
+}
+
+// Monitor input changes to update generated code and show images
+document.getElementById('Esecondinputno').addEventListener('input', ESgenerateCode);
+document.getElementById('Esecondinputnc').addEventListener('input', ESgenerateCode);
 
 // third 
 
@@ -308,12 +620,33 @@ function ggenerateCode() {
     if (noValue && ncValue) {
         const codes = {
             "11": "P2PSF311",
+            "12": "P2PSF312",
             "10": "P2PSF310",
             "01": "P2PSF301",
             "21": "P2PSF321",
             "23": "P2PSF323",
             "22": "P2PSF322",
-            "33": "P2PSF333"
+            "33": "P2PSF333",
+            "32": "P2PSF332",
+            "13": "P2PSF313",
+            "14": "P2PSF314",
+            "15": "P2PSF315",
+            "24": "P2PSF324",
+            "31": "P2PSF331",
+            "41": "P2PSF341",
+            "42": "P2PSF342",
+            "51": "P2PSF351",
+            "00": "P2PSF300",
+            "20": "P2PSF320",
+            "30": "P2PSF330",
+            "40": "P2PSF340",
+            "50": "P2PSF350",
+            "60": "P2PSF360",
+            "02": "P2PSF302",
+            "03": "P2PSF303",
+            "04": "P2PSF304",
+            "05": "P2PSF305",
+            "06": "P2PSF306"
         };
 
         const combinedValue = noValue + ncValue;
@@ -341,6 +674,149 @@ function ggenerateCode() {
 // Monitor input changes to update generated code and show images
 document.getElementById('thirdinputno').addEventListener('input', ggenerateCode);
 document.getElementById('thirdinputnc').addEventListener('input', ggenerateCode);
+
+// Add event listener to the "Flush" button
+document.querySelector('.flush').addEventListener('click', function () {
+    // Reset all forms with the class 'flushform'
+    document.querySelectorAll('.flushform').forEach(form => form.reset());
+
+    // Reset images and hide plus symbols
+    document.getElementById('noimageContainer').classList.add('hidden');
+    document.getElementById('ncimageContainer').classList.add('hidden');
+    document.getElementById('whiteimageContainer').classList.remove('hidden');
+    document.getElementById('plus1').style.display = 'none';
+    document.getElementById('plus2').style.display = 'none';
+
+    // Hide the result and description
+    document.getElementById('result').classList.add('hidden');
+    document.getElementById('description').classList.add('hidden');
+});
+
+// ECONOMY
+// Ensure NO and NC are always visible and displayed together
+document.getElementById('Ethirdnbtnno').addEventListener('click', function () {
+    document.getElementById('Ethirdinputno').classList.remove('hidden');
+    document.getElementById('Ethirdinputnc').classList.remove('hidden'); // Always show NC with NO
+});
+
+document.getElementById('Ethirdnbtnnc').addEventListener('click', function () {
+    document.getElementById('Ethirdinputnc').classList.remove('hidden');
+    document.getElementById('Ethirdinputno').classList.remove('hidden'); // Always show NO with NC
+});
+
+// Restrict NO and NC inputs to positive numbers only
+const EtpositiveNumberOnly = (event) => {
+    const input = event.target;
+    input.value = input.value.replace(/[^0-9]/g, ''); // Allow only digits
+};
+
+// Add event listeners to enforce positive number restriction
+document.getElementById('Ethirdinputno').addEventListener('input', EtpositiveNumberOnly);
+document.getElementById('Ethirdinputnc').addEventListener('input', EtpositiveNumberOnly);
+
+// Function to generate the code, show images, and add plus symbols dynamically
+function EggenerateCode() {
+    const noValue = document.getElementById('Ethirdinputno').value;
+    const ncValue = document.getElementById('Ethirdinputnc').value;
+
+    const resultContainer = document.getElementById('result');
+    const descriptionContainer = document.getElementById('description');
+    const generatedCodeElement = document.getElementById('generated-code');
+
+    // Image containers
+    const whiteImageContainer = document.getElementById('greenimageContainer');
+    const noImageContainer = document.getElementById('noimageContainer');
+    const ncImageContainer = document.getElementById('ncimageContainer');
+
+    // Plus symbols
+    const plus1 = document.getElementById('plus1');
+    const plus2 = document.getElementById('plus2');
+
+    // Ensure the white image is always visible
+    whiteImageContainer.classList.remove('hidden');
+    plus1.style.display = 'none'; // Hide symbols initially
+    plus2.style.display = 'none';
+
+    const noImageName = noImageContainer.querySelector('.image-name');
+    const ncImageName = ncImageContainer.querySelector('.image-name');
+
+    // Logic for NO and NC images
+    if (noValue) {
+        noImageContainer.querySelector('img').src = `images/no-${noValue}.png`;
+        noImageName.textContent = `S1*${noValue}`;
+        noImageContainer.classList.remove('hidden');
+        plus1.style.display = 'block'; // Show the first plus symbol
+    } else {
+        noImageContainer.classList.add('hidden');
+    }
+
+    if (ncValue) {
+        ncImageContainer.querySelector('img').src = `images/nc-${ncValue}.png`;
+        ncImageName.textContent = `S2*${ncValue}`;
+        ncImageContainer.classList.remove('hidden');
+        plus2.style.display = 'block'; // Show the second plus symbol
+    } else {
+        ncImageContainer.classList.add('hidden');
+    }
+
+    // Code generation logic
+    if (noValue && ncValue) {
+        const codes = {
+            "11": "EP2PSF311",
+            "12": "EP2PSF312",
+            "10": "EP2PSF310",
+            "01": "EP2PSF301",
+            "21": "EP2PSF321",
+            "23": "EP2PSF323",
+            "22": "EP2PSF322",
+            "33": "EP2PSF333",
+            "32": "EP2PSF332",
+            "13": "EP2PSF313",
+            "14": "EP2PSF314",
+            "15": "EP2PSF315",
+            "24": "EP2PSF324",
+            "31": "EP2PSF331",
+            "41": "EP2PSF341",
+            "42": "EP2PSF342",
+            "51": "EP2PSF351",
+            "00": "EP2PSF300",
+            "20": "EP2PSF320",
+            "30": "EP2PSF330",
+            "40": "EP2PSF340",
+            "50": "EP2PSF350",
+            "60": "EP2PSF360",
+            "02": "EP2PSF302",
+            "03": "EP2PSF303",
+            "04": "EP2PSF304",
+            "05": "EP2PSF305",
+            "06": "EP2PSF306"
+        };
+
+        const combinedValue = noValue + ncValue;
+        const code = codes[combinedValue] || 'Invalid Code';
+
+        if (code === 'Invalid Code') {
+            noImageContainer.classList.add('hidden');
+            ncImageContainer.classList.add('hidden');
+            plus1.style.display = 'none';
+            plus2.style.display = 'none';
+            generatedCodeElement.textContent = 'Generated Code: Invalid Code';
+            descriptionContainer.classList.add('hidden'); // Hide description for invalid code
+            resultContainer.classList.remove('hidden'); // Show result div
+        } else {
+            generatedCodeElement.textContent = `ORDERING CODE: ${code}`;
+            descriptionContainer.querySelector('#description-title').textContent = 'Description:';
+            descriptionContainer.classList.remove('hidden'); // Show description
+            resultContainer.classList.remove('hidden'); // Show result div
+        }
+    } else {
+        resultContainer.classList.add('hidden'); // Hide result if no input
+    }
+}
+
+// Monitor input changes to update generated code and show images
+document.getElementById('Ethirdinputno').addEventListener('input', EggenerateCode);
+document.getElementById('Ethirdinputnc').addEventListener('input', EggenerateCode);
 
 // Add event listener to the "Flush" button
 document.querySelector('.flush').addEventListener('click', function () {
@@ -432,14 +908,34 @@ function redgreengenerateCode() {
     // Code generation logic
     if (noValue && ncValue) {
         const codes = {
-            "11": "P2PSF111",
-            "12": "P2PSF112",
-            "10": "P2PSF110",
-            "01": "P2PSF101",
-            "21": "P2PSF121",
-            "23": "P2PSF123",
-            "22": "P2PSF122",
-            "33": "P2PSF133"
+            "11": "P2PSF411",
+            "12": "P2PSF412",
+            "10": "P2PSF410",
+            "01": "P2PSF401",
+            "21": "P2PSF421",
+            "23": "P2PSF423",
+            "22": "P2PSF422",
+            "33": "P2PSF433",
+            "32": "P2PSF432",
+            "13": "P2PSF413",
+            "14": "P2PSF414",
+            "15": "P2PSF415",
+            "24": "P2PSF424",
+            "31": "P2PSF431",
+            "41": "P2PSF441",
+            "42": "P2PSF442",
+            "51": "P2PSF451",
+            "00": "P2PSF400",
+            "20": "P2PSF420",
+            "30": "P2PSF430",
+            "40": "P2PSF440",
+            "50": "P2PSF450",
+            "60": "P2PSF460",
+            "02": "P2PSF402",
+            "03": "P2PSF403",
+            "04": "P2PSF404",
+            "05": "P2PSF405",
+            "06": "P2PSF406"
         };
 
         const combinedValue = noValue + ncValue;
@@ -560,14 +1056,34 @@ function bluegreengenerateCode() {
     // Code generation logic
     if (noValue && ncValue) {
         const codes = {
-            "11": "P2PSF111",
-            "12": "P2PSF112",
-            "10": "P2PSF110",
-            "01": "P2PSF101",
-            "21": "P2PSF121",
-            "23": "P2PSF123",
-            "22": "P2PSF122",
-            "33": "P2PSF133"
+            "11": "P2PSF611",
+            "12": "P2PSF612",
+            "10": "P2PSF610",
+            "01": "P2PSF601",
+            "21": "P2PSF621",
+            "23": "P2PSF623",
+            "22": "P2PSF622",
+            "33": "P2PSF633",
+            "32": "P2PSF632",
+            "13": "P2PSF613",
+            "14": "P2PSF614",
+            "15": "P2PSF615",
+            "24": "P2PSF624",
+            "31": "P2PSF631",
+            "41": "P2PSF641",
+            "42": "P2PSF642",
+            "51": "P2PSF651",
+            "00": "P2PSF600",
+            "20": "P2PSF620",
+            "30": "P2PSF630",
+            "40": "P2PSF640",
+            "50": "P2PSF650",
+            "60": "P2PSF660",
+            "02": "P2PSF602",
+            "03": "P2PSF603",
+            "04": "P2PSF604",
+            "05": "P2PSF605",
+            "06": "P2PSF606"
         };
 
         const combinedValue = noValue + ncValue;
@@ -688,12 +1204,33 @@ function yellowGenerateCode() {
     if (noValue && ncValue) {
         const codes = {
             "11": "P2PSF811",
+            "12": "P2PSF812",
             "10": "P2PSF810",
             "01": "P2PSF801",
             "21": "P2PSF821",
             "23": "P2PSF823",
             "22": "P2PSF822",
-            "33": "P2PSF833"
+            "33": "P2PSF833",
+            "32": "P2PSF832",
+            "13": "P2PSF813",
+            "14": "P2PSF814",
+            "15": "P2PSF815",
+            "24": "P2PSF824",
+            "31": "P2PSF831",
+            "41": "P2PSF841",
+            "42": "P2PSF842",
+            "51": "P2PSF851",
+            "00": "P2PSF800",
+            "20": "P2PSF820",
+            "30": "P2PSF830",
+            "40": "P2PSF840",
+            "50": "P2PSF850",
+            "60": "P2PSF860",
+            "02": "P2PSF802",
+            "03": "P2PSF803",
+            "04": "P2PSF804",
+            "05": "P2PSF805",
+            "06": "P2PSF806"
         };
 
         const combinedValue = noValue + ncValue;
@@ -784,7 +1321,27 @@ function fwamgenerateCode() {
             "21": "P2PSF1A21",
             "23": "P2PSF1A23",
             "22": "P2PSF1A22",
-            "33": "P2PSF1A33"
+            "33": "P2PSF1A33",
+            "32": "P2PSF1A32",
+            "13": "P2PSF1A13",
+            "14": "P2PSF1A14",
+            "15": "P2PSF1A15",
+            "24": "P2PSF1A24",
+            "31": "P2PSF1A31",
+            "41": "P2PSF1A41",
+            "42": "P2PSF1A42",
+            "51": "P2PSF1A51",
+            "00": "P2PSF1A00",
+            "20": "P2PSF1A20",
+            "30": "P2PSF1A30",
+            "40": "P2PSF1A40",
+            "50": "P2PSF1A50",
+            "60": "P2PSF1A60",
+            "02": "P2PSF1A02",
+            "03": "P2PSF1A03",
+            "04": "P2PSF1A04",
+            "05": "P2PSF1A05",
+            "06": "P2PSF1A06"    
         };
 
         const combinedValue = noValue + ncValue;
@@ -862,7 +1419,27 @@ function fwamblackgenerateCode() {
             "21": "P2PSF2A21",
             "23": "P2PSF2A23",
             "22": "P2PSF2A22",
-            "33": "P2PSF2A33"
+            "33": "P2PSF2A33",
+            "32": "P2PSF2A32",
+            "13": "P2PSF2A13",
+            "14": "P2PSF2A14",
+            "15": "P2PSF2A15",
+            "24": "P2PSF2A24",
+            "31": "P2PSF2A31",
+            "41": "P2PSF2A41",
+            "42": "P2PSF2A42",
+            "51": "P2PSF2A51",
+            "00": "P2PSF2A00",
+            "20": "P2PSF2A20",
+            "30": "P2PSF2A30",
+            "40": "P2PSF2A40",
+            "50": "P2PSF2A50",
+            "60": "P2PSF2A60",
+            "02": "P2PSF2A02",
+            "03": "P2PSF2A03",
+            "04": "P2PSF2A04",
+            "05": "P2PSF2A05",
+            "06": "P2PSF2A06" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -931,7 +1508,27 @@ function fwamgreengenerateCode() {
             "21": "P2PSF3A21",
             "23": "P2PSF3A23",
             "22": "P2PSF3A22",
-            "33": "P2PSF3A33"
+            "33": "P2PSF3A33",
+            "32": "P2PSF3A32",
+            "13": "P2PSF3A13",
+            "14": "P2PSF3A14",
+            "15": "P2PSF3A15",
+            "24": "P2PSF3A24",
+            "31": "P2PSF3A31",
+            "41": "P2PSF3A41",
+            "42": "P2PSF3A42",
+            "51": "P2PSF3A51",
+            "00": "P2PSF3A00",
+            "20": "P2PSF3A20",
+            "30": "P2PSF3A30",
+            "40": "P2PSF3A40",
+            "50": "P2PSF3A50",
+            "60": "P2PSF3A60",
+            "02": "P2PSF3A02",
+            "03": "P2PSF3A03",
+            "04": "P2PSF3A04",
+            "05": "P2PSF3A05",
+            "06": "P2PSF3A06" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1000,7 +1597,27 @@ function fwamredgreengenerateCode() {
             "21": "P2PSF4A21",
             "23": "P2PSF4A23",
             "22": "P2PSF4A22",
-            "33": "P2PSF4A33"
+            "33": "P2PSF4A33",
+            "32": "P2PSF4A32",
+            "13": "P2PSF4A13",
+            "14": "P2PSF4A14",
+            "15": "P2PSF4A15",
+            "24": "P2PSF4A24",
+            "31": "P2PSF4A31",
+            "41": "P2PSF4A41",
+            "42": "P2PSF4A42",
+            "51": "P2PSF4A51",
+            "00": "P2PSF4A00",
+            "20": "P2PSF4A20",
+            "30": "P2PSF4A30",
+            "40": "P2PSF4A40",
+            "50": "P2PSF4A50",
+            "60": "P2PSF4A60",
+            "02": "P2PSF4A02",
+            "03": "P2PSF4A03",
+            "04": "P2PSF4A04",
+            "05": "P2PSF4A05",
+            "06": "P2PSF4A06" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1068,7 +1685,27 @@ function fwambluegreengenerateCode() {
             "21": "P2PSF6A21",
             "23": "P2PSF6A23",
             "22": "P2PSF6A22",
-            "33": "P2PSF6A33"
+            "33": "P2PSF6A33",
+            "32": "P2PSF6A32",
+            "13": "P2PSF6A13",
+            "14": "P2PSF6A14",
+            "15": "P2PSF6A15",
+            "24": "P2PSF6A24",
+            "31": "P2PSF6A31",
+            "41": "P2PSF6A41",
+            "42": "P2PSF6A42",
+            "51": "P2PSF6A51",
+            "00": "P2PSF6A00",
+            "20": "P2PSF6A20",
+            "30": "P2PSF6A30",
+            "40": "P2PSF6A40",
+            "50": "P2PSF6A50",
+            "60": "P2PSF6A60",
+            "02": "P2PSF6A02",
+            "03": "P2PSF6A03",
+            "04": "P2PSF6A04",
+            "05": "P2PSF6A05",
+            "06": "P2PSF6A06" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1136,7 +1773,27 @@ function fwamyellowgenerateCode() {
             "21": "P2PSF8A21",
             "23": "P2PSF8A23",
             "22": "P2PSF8A22",
-            "33": "P2PSF8A33"
+            "32": "P2PSF8A32",
+            "33": "P2PSF8A33",
+            "13": "P2PSF8A13",
+            "14": "P2PSF8A14",
+            "15": "P2PSF8A15",
+            "24": "P2PSF8A24",
+            "31": "P2PSF8A31",
+            "41": "P2PSF8A41",
+            "42": "P2PSF8A42",
+            "51": "P2PSF8A51",
+            "00": "P2PSF8A00",
+            "20": "P2PSF8A20",
+            "30": "P2PSF8A30",
+            "40": "P2PSF8A40",
+            "50": "P2PSF8A50",
+            "60": "P2PSF8A60",
+            "02": "P2PSF8A02",
+            "03": "P2PSF8A03",
+            "04": "P2PSF8A04",
+            "05": "P2PSF8A05",
+            "06": "P2PSF8A06" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1208,7 +1865,28 @@ function ProjgenerateCode() {
             "21": "P2PSP121",
             "23": "P2PSP123",
             "22": "P2PSP122",
-            "33": "P2PSP133"
+            "33": "P2PSP133",
+            "32": "P2PSP132",
+            "13": "P2PSP113",
+            "14": "P2PSP114",
+            "15": "P2PSP115",
+            "24": "P2PSP124",
+            "31": "P2PSP131",
+            "41": "P2PSP141",
+            "42": "P2PSP142",
+            "51": "P2PSP151",
+            "00": "P2PSP100",
+            "20": "P2PSP120",
+            "30": "P2PSP130",
+            "40": "P2PSP140",
+            "50": "P2PSP150",
+            "60": "P2PSP160",
+            "02": "P2PSP102",
+            "03": "P2PSP103",
+            "04": "P2PSP104",
+            "05": "P2PSP105",
+            "06": "P2PSP106" 
+            
         };
 
         const combinedValue = noValue + ncValue;
@@ -1286,7 +1964,27 @@ function ProjblackgenerateCode() {
             "21": "P2PSP221",
             "23": "P2PSP223",
             "22": "P2PSP222",
-            "33": "P2PSP233"
+            "33": "P2PSP233",
+            "32": "P2PSP232",
+            "13": "P2PSP213",
+            "14": "P2PSP214",
+            "15": "P2PSP215",
+            "24": "P2PSP224",
+            "31": "P2PSP231",
+            "41": "P2PSP241",
+            "42": "P2PSP242",
+            "51": "P2PSP251",
+            "00": "P2PSP200",
+            "20": "P2PSP220",
+            "30": "P2PSP230",
+            "40": "P2PSP240",
+            "50": "P2PSP250",
+            "60": "P2PSP260",
+            "02": "P2PSP202",
+            "03": "P2PSP203",
+            "04": "P2PSP204",
+            "05": "P2PSP205",
+            "06": "P2PSP206" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1355,7 +2053,27 @@ function ProjgreengenerateCode() {
             "21": "P2PSP321",
             "23": "P2PSP323",
             "22": "P2PSP322",
-            "33": "P2PSP333"
+            "33": "P2PSP333",
+            "32": "P2PSP332",
+            "13": "P2PSP313",
+            "14": "P2PSP314",
+            "15": "P2PSP315",
+            "24": "P2PSP324",
+            "31": "P2PSP331",
+            "41": "P2PSP341",
+            "42": "P2PSP342",
+            "51": "P2PSP351",
+            "00": "P2PSP300",
+            "20": "P2PSP320",
+            "30": "P2PSP330",
+            "40": "P2PSP340",
+            "50": "P2PSP350",
+            "60": "P2PSP360",
+            "02": "P2PSP302",
+            "03": "P2PSP303",
+            "04": "P2PSP304",
+            "05": "P2PSP305",
+            "06": "P2PSP306" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1424,7 +2142,27 @@ function ProjredgreengenerateCode() {
             "21": "P2PSP421",
             "23": "P2PSP423",
             "22": "P2PSP422",
-            "33": "P2PSP433"
+            "33": "P2PSP433",
+            "32": "P2PSP432",
+            "13": "P2PSP413",
+            "14": "P2PSP414",
+            "15": "P2PSP415",
+            "24": "P2PSP424",
+            "31": "P2PSP431",
+            "41": "P2PSP441",
+            "42": "P2PSP442",
+            "51": "P2PSP451",
+            "00": "P2PSP400",
+            "20": "P2PSP420",
+            "30": "P2PSP430",
+            "40": "P2PSP440",
+            "50": "P2PSP450",
+            "60": "P2PSP460",
+            "02": "P2PSP402",
+            "03": "P2PSP403",
+            "04": "P2PSP404",
+            "05": "P2PSP405",
+            "06": "P2PSP406" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1492,7 +2230,27 @@ function ProjbluegreengenerateCode() {
             "21": "P2PSP621",
             "23": "P2PSP623",
             "22": "P2PSP622",
-            "33": "P2PSP633"
+            "33": "P2PSP633",
+            "32": "P2PSP632",
+            "13": "P2PSP613",
+            "14": "P2PSP614",
+            "15": "P2PSP615",
+            "24": "P2PSP624",
+            "31": "P2PSP631",
+            "41": "P2PSP641",
+            "42": "P2PSP642",
+            "51": "P2PSP651",
+            "00": "P2PSP600",
+            "20": "P2PSP620",
+            "30": "P2PSP630",
+            "40": "P2PSP640",
+            "50": "P2PSP650",
+            "60": "P2PSP660",
+            "02": "P2PSP602",
+            "03": "P2PSP603",
+            "04": "P2PSP604",
+            "05": "P2PSP605",
+            "06": "P2PSP606" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1560,7 +2318,27 @@ function ProjyellowgenerateCode() {
             "21": "P2PSP821",
             "23": "P2PSP823",
             "22": "P2PSP822",
-            "33": "P2PSP833"
+            "33": "P2PSP833",
+            "32": "P2PSP832",
+            "13": "P2PSP813",
+            "14": "P2PSP814",
+            "15": "P2PSP815",
+            "24": "P2PSP824",
+            "31": "P2PSP831",
+            "41": "P2PSP841",
+            "42": "P2PSP842",
+            "51": "P2PSP851",
+            "00": "P2PSP800",
+            "20": "P2PSP820",
+            "30": "P2PSP830",
+            "40": "P2PSP840",
+            "50": "P2PSP850",
+            "60": "P2PSP860",
+            "02": "P2PSP802",
+            "03": "P2PSP803",
+            "04": "P2PSP804",
+            "05": "P2PSP805",
+            "06": "P2PSP806" 
         };
 
         const combinedValue = noValue + ncValue;
@@ -1627,12 +2405,33 @@ function frragenerateCode() {
     if (noValue && ncValue) {
         const codes = {
             "11": "P2PSF1RR11",
+            "12": "P2PSF1RR12",
             "10": "P2PSF1RR10",
             "01": "P2PSF1RR01",
             "21": "P2PSF1RR21",
             "23": "P2PSF1RR23",
             "22": "P2PSF1RR22",
-            "33": "P2PSF1RR33"
+            "33": "P2PSF1RR33",
+            "32": "P2PSF1RR32",
+            "13": "P2PSF1RR13",
+            "14": "P2PSF1RR14",
+            "15": "P2PSF1RR15",
+            "24": "P2PSF1RR24",
+            "31": "P2PSF1RR31",
+            "41": "P2PSF1RR41",
+            "42": "P2PSF1RR42",
+            "51": "P2PSF1RR51",
+            "00": "P2PSF1RR00",
+            "20": "P2PSF1RR20",
+            "30": "P2PSF1RR30",
+            "40": "P2PSF1RR40",
+            "50": "P2PSF1RR50",
+            "60": "P2PSF1RR60",
+            "02": "P2PSF1RR02",
+            "03": "P2PSF1RR03",
+            "04": "P2PSF1RR04",
+            "05": "P2PSF1RR05",
+            "06": "P2PSF1RR06"
         };
 
         const combinedValue = noValue + ncValue;
@@ -1711,7 +2510,27 @@ function frrablackgenerateCode() {
             "23": "P2PSF2RR23",
             "22": "P2PSF2RR22",
             "12": "P2PSF2RR12",
-            "33": "P2PSF2RR33"
+            "33": "P2PSF2RR33",
+            "32": "P2PSF2RR32",
+            "13": "P2PSF2RR13",
+            "14": "P2PSF2RR14",
+            "15": "P2PSF2RR15",
+            "24": "P2PSF2RR24",
+            "31": "P2PSF2RR31",
+            "41": "P2PSF2RR41",
+            "42": "P2PSF2RR42",
+            "51": "P2PSF2RR51",
+            "00": "P2PSF2RR00",
+            "20": "P2PSF2RR20",
+            "30": "P2PSF2RR30",
+            "40": "P2PSF2RR40",
+            "50": "P2PSF2RR50",
+            "60": "P2PSF2RR60",
+            "02": "P2PSF2RR02",
+            "03": "P2PSF2RR03",
+            "04": "P2PSF2RR04",
+            "05": "P2PSF2RR05",
+            "06": "P2PSF2RR06"
         };
 
         const combinedValue = noValue + ncValue;
@@ -1775,12 +2594,33 @@ function frragreengenerateCode() {
     if (noValue && ncValue) {
         const codes = {
             "11": "P2PSF3RR11",
+            "12": "P2PSF3RR12",
             "10": "P2PSF3RR10",
             "01": "P2PSF3RR01",
             "21": "P2PSF3RR21",
             "23": "P2PSF3RR23",
             "22": "P2PSF3RR22",
-            "33": "P2PSF3RR33"
+            "33": "P2PSF3RR33",
+            "32": "P2PSF1RR32",
+            "13": "P2PSF1RR13",
+            "14": "P2PSF1RR14",
+            "15": "P2PSF1RR15",
+            "24": "P2PSF1RR24",
+            "31": "P2PSF1RR31",
+            "41": "P2PSF1RR41",
+            "42": "P2PSF1RR42",
+            "51": "P2PSF1RR51",
+            "00": "P2PSF1RR00",
+            "20": "P2PSF1RR20",
+            "30": "P2PSF1RR30",
+            "40": "P2PSF1RR40",
+            "50": "P2PSF1RR50",
+            "60": "P2PSF1RR60",
+            "02": "P2PSF1RR02",
+            "03": "P2PSF1RR03",
+            "04": "P2PSF1RR04",
+            "05": "P2PSF1RR05",
+            "06": "P2PSF1RR06"
         };
 
         const combinedValue = noValue + ncValue;
@@ -1844,12 +2684,33 @@ function frraredgreengenerateCode() {
     if (noValue && ncValue) {
         const codes = {
             "11": "P2PSF4RR11",
+            "12": "P2PSF4RR12",
             "10": "P2PSF4RR10",
             "01": "P2PSF4RR01",
             "21": "P2PSF4RR21",
             "23": "P2PSF4RR23",
             "22": "P2PSF4RR22",
-            "33": "P2PSF4RR33"
+            "33": "P2PSF4RR33",
+            "32": "P2PSF4RR32",
+            "13": "P2PSF4RR13",
+            "14": "P2PSF4RR14",
+            "15": "P2PSF4RR15",
+            "24": "P2PSF4RR24",
+            "31": "P2PSF4RR31",
+            "41": "P2PSF4RR41",
+            "42": "P2PSF4RR42",
+            "51": "P2PSF4RR51",
+            "00": "P2PSF4RR00",
+            "20": "P2PSF4RR20",
+            "30": "P2PSF4RR30",
+            "40": "P2PSF4RR40",
+            "50": "P2PSF4RR50",
+            "60": "P2PSF4RR60",
+            "02": "P2PSF4RR02",
+            "03": "P2PSF4RR03",
+            "04": "P2PSF4RR04",
+            "05": "P2PSF4RR05",
+            "06": "P2PSF4RR06"
         };
 
         const combinedValue = noValue + ncValue;
@@ -1917,7 +2778,28 @@ function frrabluegreengenerateCode() {
             "21": "P2PSF6RR21",
             "23": "P2PSF6RR23",
             "22": "P2PSF6RR22",
-            "33": "P2PSF6RR33"
+            "33": "P2PSF6RR33",
+            "12": "P2PSF6RR12",
+            "32": "P2PSF6RR32",
+            "13": "P2PSF6RR13",
+            "14": "P2PSF6RR14",
+            "15": "P2PSF6RR15",
+            "24": "P2PSF6RR24",
+            "31": "P2PSF6RR31",
+            "41": "P2PSF6RR41",
+            "42": "P2PSF6RR42",
+            "51": "P2PSF6RR51",
+            "00": "P2PSF6RR00",
+            "20": "P2PSF6RR20",
+            "30": "P2PSF6RR30",
+            "40": "P2PSF6RR40",
+            "50": "P2PSF6RR50",
+            "60": "P2PSF6RR60",
+            "02": "P2PSF6RR02",
+            "03": "P2PSF6RR03",
+            "04": "P2PSF6RR04",
+            "05": "P2PSF6RR05",
+            "06": "P2PSF6RR06"
         };
 
         const combinedValue = noValue + ncValue;
@@ -1985,7 +2867,29 @@ function frrayellowgenerateCode() {
             "21": "P2PSF8RR21",
             "23": "P2PSF8RR23",
             "22": "P2PSF8RR22",
-            "33": "P2PSF8RR33"
+            "33": "P2PSF8RR33",
+            "33": "P2PSF8RR33",
+            "33": "P2PSF8RR33",
+            "32": "P2PSF8RR32",
+            "13": "P2PSF8RR13",
+            "14": "P2PSF8RR14",
+            "15": "P2PSF8RR15",
+            "24": "P2PSF8RR24",
+            "31": "P2PSF8RR31",
+            "41": "P2PSF8RR41",
+            "42": "P2PSF8RR42",
+            "51": "P2PSF8RR51",
+            "00": "P2PSF8RR00",
+            "20": "P2PSF8RR20",
+            "30": "P2PSF8RR30",
+            "40": "P2PSF8RR40",
+            "50": "P2PSF8RR50",
+            "60": "P2PSF8RR60",
+            "02": "P2PSF8RR02",
+            "03": "P2PSF8RR03",
+            "04": "P2PSF8RR04",
+            "05": "P2PSF8RR05",
+            "06": "P2PSF8RR06"
         };
 
         const combinedValue = noValue + ncValue;
@@ -2057,7 +2961,28 @@ function bootgenerateCode() {
             "21": "P2PSB1BT721",
             "23": "P2PSB1BT723",
             "22": "P2PSB1BT722",
-            "33": "P2PSB1BT733"
+            "33": "P2PSB1BT733",
+            "32": "P2PSB1BT732",
+            "13": "P2PSB1BT713",
+            "14": "P2PSB1BT714",
+            "15": "P2PSB1BT715",
+            "24": "P2PSB1BT724",
+            "31": "P2PSB1BT731",
+            "41": "P2PSB1BT741",
+            "42": "P2PSB1BT742",
+            "51": "P2PSB1BT751",
+            "00": "P2PSB1BT700",
+            "20": "P2PSB1BT720",
+            "30": "P2PSB1BT730",
+            "40": "P2PSB1BT740",
+            "50": "P2PSB1BT750",
+            "60": "P2PSB1BT760",
+            "02": "P2PSB1BT702",
+            "03": "P2PSB1BT703",
+            "04": "P2PSB1BT704",
+            "05": "P2PSB1BT705",
+            "06": "P2PSB1BT706"
+            
         };
 
         const combinedValue = noValue + ncValue;
@@ -2135,6 +3060,27 @@ function bootblackgenerateCode() {
             "21": "P2PSB2BT721",
             "23": "P2PSB2BT723",
             "22": "P2PSB2BT722",
+            "12": "P2PSB2BT712",
+            "32": "P2PSB2BT732",
+            "13": "P2PSB2BT713",
+            "14": "P2PSB2BT714",
+            "15": "P2PSB2BT715",
+            "24": "P2PSB2BT724",
+            "31": "P2PSB2BT731",
+            "41": "P2PSB2BT741",
+            "42": "P2PSB2BT742",
+            "51": "P2PSB2BT751",
+            "00": "P2PSB2BT700",
+            "20": "P2PSB2BT720",
+            "30": "P2PSB2BT730",
+            "40": "P2PSB2BT740",
+            "50": "P2PSB2BT750",
+            "60": "P2PSB2BT760",
+            "02": "P2PSB2BT702",
+            "03": "P2PSB2BT703",
+            "04": "P2PSB2BT704",
+            "05": "P2PSB2BT705",
+            "06": "P2PSB2BT706",           
             "33": "P2PSB2BT733"
         };
 
@@ -2204,7 +3150,28 @@ function bootgreengenerateCode() {
             "21": "P2PSB3BT721",
             "23": "P2PSB3BT723",
             "22": "P2PSB3BT722",
-            "33": "P2PSB3BT733"
+            "33": "P2PSB3BT733",
+            "12": "P2PSBBT712",
+            "32": "P2PSB3BT732",
+            "13": "P2PSB3BT713",
+            "14": "P2PSB3BT714",
+            "15": "P2PSB3BT715",
+            "24": "P2PSB3BT724",
+            "31": "P2PSB3BT731",
+            "41": "P2PSB3BT741",
+            "42": "P2PSB3BT742",
+            "51": "P2PSB3BT751",
+            "00": "P2PSB3BT700",
+            "20": "P2PSB3BT720",
+            "30": "P2PSB3BT730",
+            "40": "P2PSB3BT740",
+            "50": "P2PSB3BT750",
+            "60": "P2PSB3BT760",
+            "02": "P2PSB3BT702",
+            "03": "P2PSB3BT703",
+            "04": "P2PSB3BT704",
+            "05": "P2PSB3BT705",
+            "06": "P2PSB3BT706"
         };
 
         const combinedValue = noValue + ncValue;
@@ -2273,6 +3240,28 @@ function bootredgreengenerateCode() {
             "21": "P2PSB4BT721",
             "23": "P2PSB4BT723",
             "22": "P2PSB4BT722",
+            "12": "P2PSB4BT712",
+            "33": "P2PSB4BT733",
+            "32": "P2PSB4BT732",
+            "13": "P2PSB4BT713",
+            "14": "P2PSB4BT714",
+            "15": "P2PSB4BT715",
+            "24": "P2PSB4BT724",
+            "31": "P2PSB4BT731",
+            "41": "P2PSB4BT741",
+            "42": "P2PSB4BT742",
+            "51": "P2PSB4BT751",
+            "00": "P2PSB4BT700",
+            "20": "P2PSB4BT720",
+            "30": "P2PSB4BT730",
+            "40": "P2PSB4BT740",
+            "50": "P2PSB4BT750",
+            "60": "P2PSB4BT760",
+            "02": "P2PSB4BT702",
+            "03": "P2PSB4BT703",
+            "04": "P2PSB4BT704",
+            "05": "P2PSB4BT705",
+            "06": "P2PSB4BT706",           
             "33": "P2PSB4BT733"
         };
 
@@ -2339,8 +3328,30 @@ function bootbluegreengenerateCode() {
             "10": "P2PSB6BT710",
             "01": "P2PSB6BT701",
             "21": "P2PSB6BT721",
+            "12": "P2PSB6BT712",
             "23": "P2PSB6BT723",
             "22": "P2PSB6BT722",
+            "33": "P2PSB6BT733",
+            "32": "P2PSB6BT732",
+            "13": "P2PSB6BT713",
+            "14": "P2PSB6BT714",
+            "15": "P2PSB6BT715",
+            "24": "P2PSB6BT724",
+            "31": "P2PSB6BT731",
+            "41": "P2PSB6BT741",
+            "42": "P2PSB6BT742",
+            "51": "P2PSB6BT751",
+            "00": "P2PSB6BT700",
+            "20": "P2PSB6BT720",
+            "30": "P2PSB6BT730",
+            "40": "P2PSB6BT740",
+            "50": "P2PSB6BT750",
+            "60": "P2PSB6BT760",
+            "02": "P2PSB6BT702",
+            "03": "P2PSB6BT703",
+            "04": "P2PSB6BT704",
+            "05": "P2PSB6BT705",
+            "06": "P2PSB6BT706",
             "33": "P2PSB6BT733"
         };
 
@@ -2409,7 +3420,28 @@ function bootyellowgenerateCode() {
             "21": "P2PSB8BT721",
             "23": "P2PSB8BT723",
             "22": "P2PSB8BT722",
-            "33": "P2PSB8BT733"
+            "33": "P2PSB8BT733",
+            "32": "P2PSB6BT732",
+            "13": "P2PSB6BT713",
+            "14": "P2PSB6BT714",
+            "15": "P2PSB6BT715",
+            "24": "P2PSB6BT724",
+            "31": "P2PSB6BT731",
+            "41": "P2PSB6BT741",
+            "42": "P2PSB6BT742",
+            "51": "P2PSB6BT751",
+            "00": "P2PSB6BT700",
+            "20": "P2PSB6BT720",
+            "30": "P2PSB6BT730",
+            "40": "P2PSB6BT740",
+            "50": "P2PSB6BT750",
+            "60": "P2PSB6BT760",
+            "02": "P2PSB6BT702",
+            "03": "P2PSB6BT703",
+            "04": "P2PSB6BT704",
+            "05": "P2PSB6BT705",
+            "06": "P2PSB6BT706",
+            "33": "P2PSB6BT733"
         };
 
         const combinedValue = noValue + ncValue;
