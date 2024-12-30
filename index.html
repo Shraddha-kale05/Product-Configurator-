@@ -218,6 +218,8 @@ document.querySelectorAll('.option-btn').forEach(button => {
     
 });
 
+
+
 // flush end
 // flush with arrow marking
 
@@ -1208,30 +1210,55 @@ $(document).ready(function() {
                                                             </button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     <div class="nested-options">
                                                                         <!-- Silver Contact Button -->
                                                                         <div class="option-group">
                                                                             <button class="option-btn btn-common">Silver Contact</button>
                                                                             <div class="nested-options">
-                                                                                <div class="option-group">
-                                                                                    <button class="option-btn" id="NO-btn">Normally Open (S1)</button>
-                                                                                    <form action="" class="flushform">
-                                                                                        <input type="number" id="NO-input" class="hidden" placeholder="Enter NO code">
-                                                                                    </form>
+                                                                            <div class="option-group">
+                                                                                <button class="option-btn btn-common flush">UL Approved</button>
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="NO-btn">Normally Open (S1) UL Approved</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="NO-input" class="hidden" placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="NC-btn">Normally Close (S2) UL Approved</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="NC-input" class="hidden" placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="option-group">
-                                                                                    <button class="option-btn" id="NC-btn">Normally Close (S2)</button>
-                                                                                    <form action="" class="flushform">
-                                                                                        <input type="number" id="NC-input" class="hidden" placeholder="Enter NC code">
-                                                                                    </form>
+                                                                            </div>
+                                                                            <div class="option-group">
+                                                                                <button class="option-btn btn-common flush">Economy</button>
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="ENO-btn">Normally Open (S1) Economy</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="ENO-input" class="hidden" placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="ENC-btn">Normally Close (S2) Economy</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="ENC-input" class="hidden" placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
                                                                                 </div>
+                                                                            </div>
                                                                             </div>
                                                                         </div>
                                                                         <!-- Gold Contact Button -->
                                                                         <div class="option-group">
                                                                             <button class="option-btn btn-common">Gold Contact</button>
-                                                                            <div class="nested-options">
+                                                                      <div class="nested-options">
                                                                                 <div class="option-group">
                                                                                     <button class="option-btn" id="NO-btn">Normally Open</button>
                                                                                     <form action="" class="flushform">
@@ -1248,9 +1275,7 @@ $(document).ready(function() {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
-                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                         
@@ -1259,71 +1284,156 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common flush"><div class="black-btn"></div>(P2AF2)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
-                                                                    
-                                                                    <div class="nested-options">
-                                                                        <div class="option-group">
-                                                                            <button class="option-btn" id="secondnbtnno">Normally Open (S1)</button>
-                                                                            <form action="" class="flushform">
-                                                                            <input type="number" id="secondinputno"
-                                                                                class="hidden"
-                                                                                placeholder="Enter NO code">
-                                                                                </form>
-                                                                        </div>
-                                                                        <div class="option-group">
-                                                                            <button class="option-btn"  id="secondnbtnnc">Normally Close (S2)</button>
-                                                                            <form action="" class="flushform">
-                                                                            <input type="number" id="secondinputnc"
-                                                                                class="hidden"
-                                                                                placeholder="Enter NC code">
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
+                                                                    
+                                                                    <div class="nested-options">
+                                                                        <!-- Silver Contact Button -->
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Silver Contact</button>
+                                                                            <div class="nested-options">
+                                                                            <div class="option-group">
+                                                                                <button class="option-btn btn-common flush">UL Approved</button>
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="secondnbtnno">Normally Open (S1) UL Approved</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="secondinputno" class="hidden" placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="secondnbtnnc">Normally Close (S2) UL Approved</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="secondinputnc" class="hidden" placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="option-group">
+                                                                                <button class="option-btn btn-common flush">Economy</button>
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="Esecondnbtnno">Normally Open (S1) Economy</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="Esecondinputno" class="hidden" placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="Esecondnbtnnc">Normally Close (S2) Economy</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="Esecondinputnc" class="hidden" placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Gold Contact Button -->
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Gold Contact</button>
+                                                                      <div class="nested-options">
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NO-btn">Normally Open</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NO-input" class="hidden" placeholder="Enter NO code">
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NC-btn">Normally Close (S2)</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NC-input" class="hidden" placeholder="Enter NC code">
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
                                                             <button class="option-btn btn-common flush"><div class="green-btn"></div>(P2AF3)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
+                                                                </div>
+                                                                <div class="option-group">
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
 
+                                                                    <div class="nested-options">
+                                                                        <!-- Silver Contact Button -->
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Silver Contact</button>
+                                                                            <div class="nested-options">
+                                                                            <div class="option-group">
+                                                                                <button class="option-btn btn-common flush">UL Approved</button>
                                                                                 <div class="nested-options">
                                                                                     <div class="option-group">
-                                                                                        <button class="option-btn" id="thirdnbtnno">Normally Open (S1)</button>
+                                                                                        <button class="option-btn" id="thirdnbtnno">Normally Open (S1) UL Approved</button>
                                                                                         <form action="" class="flushform">
-                                                                                        <input type="number" id="thirdinputno"
-                                                                                            class="hidden"
-                                                                                            placeholder="Enter NO code">
+                                                                                            <input type="number" id="thirdinputno" class="hidden" placeholder="Enter NO code">
                                                                                         </form>
                                                                                     </div>
                                                                                     <div class="option-group">
-                                                                                        <button class="option-btn"  id="thirdnbtnnc">Normally Close (S2)</button>
+                                                                                        <button class="option-btn" id="thirdnbtnnc">Normally Close (S2) UL Approved</button>
                                                                                         <form action="" class="flushform">
-                                                                                        <input type="number" id="thirdinputnc"
-                                                                                            class="hidden"
-                                                                                            placeholder="Enter NC code">
+                                                                                            <input type="number" id="thirdinputnc" class="hidden" placeholder="Enter NC code">
                                                                                         </form>
                                                                                     </div>
                                                                                 </div>
+                                                                            </div>
+                                                                            <div class="option-group">
+                                                                                <button class="option-btn btn-common flush">Economy</button>
+                                                                                <div class="nested-options">
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="Ethirdnbtnno">Normally Open (S1) Economy</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="Ethirdinputno" class="hidden" placeholder="Enter NO code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="option-group">
+                                                                                        <button class="option-btn" id="Ethirdnbtnnc">Normally Close (S2) Economy</button>
+                                                                                        <form action="" class="flushform">
+                                                                                            <input type="number" id="Ethirdinputnc" class="hidden" placeholder="Enter NC code">
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
                                                                         </div>
+                                                                        <!-- Gold Contact Button -->
+                                                                        <div class="option-group">
+                                                                            <button class="option-btn btn-common">Gold Contact</button>
+                                                                      <div class="nested-options">
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NO-btn">Normally Open</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NO-input" class="hidden" placeholder="Enter NO code">
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="option-group">
+                                                                                    <button class="option-btn" id="NC-btn">Normally Close (S2)</button>
+                                                                                    <form action="" class="flushform">
+                                                                                        <input type="number" id="NC-input" class="hidden" placeholder="Enter NC code">
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                        
                                                                  
-                                                                <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
-                                                                </div>
+                                                              
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
                                                             <button class="option-btn btn-common flush"><div class="red-btn"></div>(P2AF4)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1346,7 +1456,7 @@ $(document).ready(function() {
                                                                     
                                                             </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1354,7 +1464,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common flush"><div class="blue-btn"></div>(P2AF6)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1377,7 +1487,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1385,7 +1495,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common flush"><div class="yellow-btn"></div>(P2AF8)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1409,7 +1519,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1445,7 +1555,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common fwam"><div class="white-btn"></div> (P2AF1A)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
                                                                             <button class="option-btn "
@@ -1468,7 +1578,7 @@ $(document).ready(function() {
                                                                     </div>
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1477,7 +1587,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common fwam"><div class="black-btn"></div>(P2AF2A)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1500,7 +1610,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1508,7 +1618,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common fwam"><div class="green-btn"></div>(P2AF3A)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
 
                                                                                 <div class="nested-options">
@@ -1533,7 +1643,7 @@ $(document).ready(function() {
                                                                        
                                                                  
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1541,7 +1651,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common fwam"><div class="red-btn"></div>(P2AF4A)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1564,7 +1674,7 @@ $(document).ready(function() {
                                                                     
                                                             </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1572,7 +1682,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common fwam"><div class="blue-btn"></div>(P2AF6A)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1595,7 +1705,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1603,7 +1713,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common fwam"><div class="yellow-btn"></div>(P2AF8A)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1626,7 +1736,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1653,7 +1763,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common Proj"><div class="white-btn"></div>(P2AP1)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
                                                                             <button class="option-btn "
@@ -1676,7 +1786,7 @@ $(document).ready(function() {
                                                                     </div>
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1685,7 +1795,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common Proj"><div class="black-btn"></div>(P2AP2)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1708,7 +1818,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1716,7 +1826,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common Proj"><div class="green-btn"></div>(P2AP3)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
 
                                                                                 <div class="nested-options">
@@ -1741,7 +1851,7 @@ $(document).ready(function() {
                                                                        
                                                                  
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1749,7 +1859,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common Proj"><div class="red-btn"></div>(P2AP4)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1772,7 +1882,7 @@ $(document).ready(function() {
                                                                     
                                                             </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1780,7 +1890,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common Proj"><div class="blue-btn"></div>(P2AP6)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1803,7 +1913,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1811,7 +1921,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common Proj"><div class="yellow-btn"></div>(P2AP8)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1834,7 +1944,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1863,7 +1973,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common frra"><div class="white-btn"></div>(P2AF1RR)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
                                                                             <button class="option-btn "
@@ -1886,7 +1996,7 @@ $(document).ready(function() {
                                                                     </div>
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1895,7 +2005,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common frra"><div class="black-btn"></div>(P2AF2RR)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1918,7 +2028,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1926,7 +2036,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common frra"><div class="green-btn"></div>(P2AF3RR)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
 
                                                                                 <div class="nested-options">
@@ -1951,7 +2061,7 @@ $(document).ready(function() {
                                                                        
                                                                  
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1959,7 +2069,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common frra"><div class="red-btn"></div>(P2AF4RR)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -1982,7 +2092,7 @@ $(document).ready(function() {
                                                                     
                                                             </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1990,7 +2100,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common frra"><div class="blue-btn"></div>(P2AF6RR)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -2013,7 +2123,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2021,7 +2131,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common frra"><div class="yellow-btn"></div>(P2AF8RR)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -2044,7 +2154,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2073,7 +2183,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common boot"><div class="white-btn"></div>(P2AF1BT7)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
                                                                             <button class="option-btn "
@@ -2096,7 +2206,7 @@ $(document).ready(function() {
                                                                     </div>
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2105,7 +2215,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common boot"><div class="black-btn"></div>(P2AF2BT7)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -2128,7 +2238,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2136,7 +2246,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common boot"><div class="green-btn"></div>(P2AF3BT7)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
 
                                                                                 <div class="nested-options">
@@ -2161,7 +2271,7 @@ $(document).ready(function() {
                                                                        
                                                                  
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2169,7 +2279,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common boot"><div class="red-btn"></div>(P2AF4BT7)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -2192,7 +2302,7 @@ $(document).ready(function() {
                                                                     
                                                             </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2200,7 +2310,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common boot"><div class="blue-btn"></div>(P2AF6BT7)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
                                                                     
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -2223,7 +2333,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2231,7 +2341,7 @@ $(document).ready(function() {
                                                             <button class="option-btn btn-common boot"><div class="yellow-btn"></div>(P2AF8BT7)</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                                    <button class="option-btn btn-common">PushButton</button>
 
                                                                     <div class="nested-options">
                                                                         <div class="option-group">
@@ -2254,7 +2364,7 @@ $(document).ready(function() {
 
                                                                 </div>
                                                                 <div class="option-group">
-                                                                    <button class="option-btn btn-common">Assembly(No)</button>
+                                                                    <button class="option-btn btn-common">Actuator</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2339,7 +2449,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">White (P2AF1)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common" id="NO-btn">NO</button>
@@ -2354,7 +2464,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2362,7 +2472,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Black (P2AF2)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2373,7 +2483,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2381,7 +2491,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Green (P2AF3)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2392,7 +2502,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2400,7 +2510,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Red (P2AF4)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2411,7 +2521,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2419,7 +2529,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Blue (P2AF6)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2430,7 +2540,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2438,7 +2548,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Yellow (P2AF8)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2449,7 +2559,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2517,7 +2627,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">White (P2AF1)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common" id="NO-btn">NO</button>
@@ -2532,7 +2642,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2540,7 +2650,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Black (P2AF2)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2551,7 +2661,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2559,7 +2669,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Green (P2AF3)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2570,7 +2680,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2578,7 +2688,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Red (P2AF4)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2589,7 +2699,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2597,7 +2707,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Blue (P2AF6)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2608,7 +2718,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2616,7 +2726,7 @@ $(document).ready(function() {
                                                     <button class="option-btn btn-common">Yellow (P2AF8)</button>
                                                     <div class="nested-options">
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(Yes)</button>
+                                                            <button class="option-btn btn-common">PushButton</button>
                                                             <div class="nested-options">
                                                                 <div class="option-group">
                                                                     <button class="option-btn btn-common">NO</button>
@@ -2627,7 +2737,7 @@ $(document).ready(function() {
                                                             </div>
                                                         </div>
                                                         <div class="option-group">
-                                                            <button class="option-btn btn-common">Assembly(No)</button>
+                                                            <button class="option-btn btn-common">Actuator</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2686,23 +2796,23 @@ $(document).ready(function() {
     </div>
     <div class="image-container hidden" id="blackimageContainer">
         <img src="flush/black.png" alt="Product Image" class="product-image">
-        <div class="image-name">P2AF1</div>
+        <div class="image-name">P2AF2</div>
     </div>
     <div class="image-container hidden" id="greenimageContainer">
         <img src="flush/green.png" alt="Product Image" class="product-image">
-        <div class="image-name">P2AF1</div>
+        <div class="image-name">P2AF3</div>
     </div>
     <div class="image-container hidden" id="redimageContainer">
         <img src="flush/red.png" alt="Product Image" class="product-image">
-        <div class="image-name">P2AF1</div>
+        <div class="image-name">P2AF4</div>
     </div>
     <div class="image-container hidden" id="blueimageContainer">
         <img src="flush/blue.png" alt="Product Image" class="product-image">
-        <div class="image-name">P2AF1</div>
+        <div class="image-name">P2AF6</div>
     </div>
     <div class="image-container hidden" id="yellowimageContainer">
         <img src="flush/yellow.png" alt="Product Image" class="product-image">
-        <div class="image-name">P2AF1</div>
+        <div class="image-name">P2AF8</div>
     </div>
     
     <div id="plus1" class="plus-symbol" style="display: none;">+</div>
